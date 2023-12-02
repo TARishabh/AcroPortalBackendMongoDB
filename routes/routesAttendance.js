@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const { query, validationResult, body } = require("express-validator");
 const Attendance = require("../models/Attendance");
-const User = require("../models/User");
+const User = require("../models/UserModal");
 const Subjects = require("../models/Subjects");
-const fetchuser = require("../middleware/fetchuser");
+const fetchuser = require("../middleware/fetchUser");
 const { parse } = require("date-fns");
 
 router.post("/getsubjects", fetchuser, async (req, res) => {
