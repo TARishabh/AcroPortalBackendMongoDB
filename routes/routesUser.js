@@ -108,6 +108,15 @@ router.post(
                         .status(400)
                         .json({ message: "Enrollment Number is Mandatory for Students" });
                 }
+                if (req.body.enrollment_number.length < 12){
+                    return res
+                        .status(400)
+                        .json({ message: "Invalid Enrollment Number" });
+                }
+                const student_fetch_user = await User.findOne({ enrollment_number: req.body.enrollment_number });
+                if (student_fetch_user) {
+                    return res.status(400).json({ message: "Enrollment Number Already Exists" });
+                }
                 if (!req.body.year) {
                     year = "3";
                     // return res.status(400).json({message:"Year is Mandatory for Students"});
@@ -134,7 +143,6 @@ router.post(
 
             const salt = await bcrypt.genSalt(10);
             const SecPassword = await bcrypt.hash(req.body.password, salt);
-            console.log(SecPassword);
             const user = new User({
                 email: email,
                 first_name: first_name,
