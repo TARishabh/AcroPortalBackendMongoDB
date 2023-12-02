@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
-const JWT_SIGNATURE = 'pldkhaifdljfakmushkilfifrontendasuiui@1230130-13'
+require('dotenv').config()
+
+const JWT_SIGNATURE = process.env.JWT_SIGNATURE
 
 const fetchuser = async (req,res,next)=>{
     const token = req.header('Authorization');

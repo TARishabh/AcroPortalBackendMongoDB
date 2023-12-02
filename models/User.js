@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-    enrollment_number: { type: String, max: 15,required:false },
+    enrollment_number: { type: String, max: 15, required: false,unique:false },
     first_name: { type: String, required: true, max: 20 },
     last_name: { type: String, required: true, max: 20 },
     section: { type: String, enum: ['IT-1', 'IT-2', 'IOT', 'DS'],required:false },

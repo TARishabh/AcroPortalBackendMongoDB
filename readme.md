@@ -18,3 +18,5 @@ hash -> One way function matlab, 123 ka hash aksdjkajdkadjsadajdkahdjakd ye hota
 ab jsonwebtoken install karo, kyunki apne ko token bhejna hai bande ko authenticate karne ke liye
 ab user ki id, us jwt.sign() wale function me pass karo JWT_SIGNATURE ke saath , phir user ko dedo response me token
 phir, ek middleware banao jo har baar authenticate karega user, kul mila ke jo kaam tu django permission_classes = [IsAuthenticated] karke karta tha, ab tu uska logic likhega
+
+npm i cors bhi karna varna error aayegi request maarne me
