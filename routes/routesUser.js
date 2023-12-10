@@ -161,6 +161,13 @@ router.post(
                 delete userObject.year;
                 delete userObject.section;
             }
+            const data = {
+                user: {
+                    id: createdUser._id,
+                },
+            };
+            const authToken = jwt.sign(data, JWT_SIGNATURE);
+            userObject.token = authToken;
             return res.status(200).json({ results: userObject });
         } catch (error) {
             console.error(error);
